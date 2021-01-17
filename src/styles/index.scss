@@ -1,8 +1,20 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+body {
+    background: rgb(238, 238, 238);
+}
+
+h1 {
+    color: rgb(226, 183, 189);
+}
+
+.container {
+    max-width: 600px;
+}
+
 .input {
     border: 0;
-    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+    box-shadow: none; 
 }
 
 .todo {
@@ -13,3 +25,14 @@
   margin-bottom: 6px;
   padding: 3px 10px;
 }
+
+.close {
+    color: rgb(226, 183, 189);
+    font-weight: 300;
+   
+}
+
+.close:hover {
+ color: rgb(165, 62, 76);   
+}
+

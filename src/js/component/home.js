@@ -59,27 +59,21 @@ export function Home() {
 	return (
 		<div className="container text-center">
 			<h1 className="display-4">todos</h1>
-			<div className="row">
-				<div className="col-lg-4" />
-				<div className="col-lg-4">
-					<ul className="list-group m-3">
-						<li className="list-group-item p-2">
-							<TodoForm addTodo={addTodo} />
-						</li>
-						<li className="list-group-item p-2">
-							{todos.map((todo, index) => (
-								<Todo
-									key={index}
-									index={index}
-									todo={todo}
-									removeTodo={removeTodo}
-								/>
-							))}
-						</li>
-					</ul>
-				</div>
-				<div className="col-lg-4" />
-			</div>
+			<ul className="list-group m-3">
+				<li className="list-group-item p-2">
+					<TodoForm addTodo={addTodo} />
+				</li>
+				<li className="list-group-item p-2">
+					{todos.map((todo, index) => (
+						<Todo
+							key={index}
+							index={index}
+							todo={todo}
+							removeTodo={removeTodo}
+						/>
+					))}
+				</li>
+			</ul>
 		</div>
 	);
 }
