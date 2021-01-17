@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { array } from "prop-types";
 
 //create your first component
+
 export function Todo({ todo, index, removeTodo }) {
 	return (
 		<div className="todo">
 			{todo.text}
 			<div>
 				<button className="close" onClick={() => removeTodo(index)}>
-					x
+					X
 				</button>
 			</div>
 		</div>
@@ -56,14 +57,19 @@ export function Home() {
 		setTodos(newTodos);
 	};
 
+	const itemsLeft = () => {
+		const newTodos = [...todos];
+		let itemsLeft = newTodos.length;
+	};
+
 	return (
 		<div className="container text-center">
-			<h1 className="display-4">todos</h1>
-			<ul className="list-group m-3">
-				<li className="list-group-item p-2">
+			<h1 className="display-3">todos</h1>
+			<ul className="list-group-flush m-3">
+				<div className="p-2 lead">
 					<TodoForm addTodo={addTodo} />
-				</li>
-				<li className="list-group-item p-2">
+				</div>
+				<li className="list-group-item lead">
 					{todos.map((todo, index) => (
 						<Todo
 							key={index}
@@ -72,6 +78,9 @@ export function Home() {
 							removeTodo={removeTodo}
 						/>
 					))}
+					<div className="footer text-left text-muted p-2">
+						<small>{todos.length} items left</small>
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -80,7 +89,7 @@ export function Home() {
 
 Todo.propTypes = {
 	todo: PropTypes.object,
-	index: PropTypes.string,
+	index: PropTypes.number,
 	removeTodo: PropTypes.function
 };
 
